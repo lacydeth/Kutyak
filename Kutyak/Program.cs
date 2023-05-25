@@ -1,5 +1,4 @@
 ﻿using Kutyak;
-using System.Security.Cryptography.X509Certificates;
 
 List<KutyaFajtak> kutyafajtak = new List<KutyaFajtak>();
 List<KutyaNevek> kutyanevek = new List<KutyaNevek>();
@@ -24,3 +23,5 @@ Console.WriteLine($"3. feladat: Kutyanevek száma: {kutyanevek.Count()}");
 Console.WriteLine($"6. feladat: Kutyák átlag életkora: {Math.Round(kutyak.Average(x => x.KutyaKor), 2)}");
 Console.WriteLine($"7. feladat: Legidősebb kutya neve és fajtája: {kutyanevek.Where(x => x.KutyaId == kutyak.OrderByDescending(x => x.KutyaKor).First().NevAzon).First().KutyaNev}," +
     $" {kutyafajtak.Where(x => x.KutyaId == kutyak.OrderByDescending(x => x.KutyaKor).First().FajtaAzon).First().KutyaNev}");
+
+kutyak.Where(x => x.UtolsoEll == DateTime.Parse("2018.01.10.")).ToList().ForEach(x => Console.WriteLine(x.FajtaAzon));
